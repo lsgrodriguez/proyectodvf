@@ -1,5 +1,6 @@
 import { musicModel } from '../../database/models';
 
+
 const addMusicAction = async (musicData) => {
     try {
         return await musicModel.create(musicData)
@@ -8,6 +9,15 @@ const addMusicAction = async (musicData) => {
     }
 }
 
+const showMusic = async () => {
+    try {
+        return await musicModel.find()
+      } catch (error) {
+        console.log("TCL: showAccounts -> error", error)
+      }
+}
+
 export {
-    addMusicAction
+    addMusicAction,
+    showMusic
 }

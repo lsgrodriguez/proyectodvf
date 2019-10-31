@@ -27,7 +27,14 @@ const accountSchema = new schema (
         subscription: {
             type: String,
             enum: ['30', '60', '120']
-        }
+        },
+        profileImage:{
+            type: String
+        },
+        comments: [{
+            type: schema.Types.ObjectId,
+            ref: 'comment'
+        }]
     },
     { timestamps: true}
 )

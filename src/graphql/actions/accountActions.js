@@ -35,7 +35,7 @@ const addAccountAction = async (accountData) => {
 
 const updateAccountAction = async (filter, update) => {
   try {
-    return await accountsModel.findOneAndUpdate(filter, update, { new: true });
+    return await accountsModel.findOneAndUpdate(filter, update, { new: true } );
   } catch (error) {
     console.log("TCL: updateAccountAction -> error", error)
   }
@@ -43,7 +43,7 @@ const updateAccountAction = async (filter, update) => {
 
 const showAccounts = async () =>{
   try {
-    return await accountsModel.find();
+    return await accountsModel.find().populate('comments');
   } catch (error) {
     console.log("TCL: showAccounts -> error", error)
   }

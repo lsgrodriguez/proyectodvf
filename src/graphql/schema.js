@@ -13,7 +13,9 @@ const typeDefs = gql`
     user: String
     email: String
     gender: String
-    role: String   
+    role: String 
+    profileImage: String
+    comments: [Comment]
   }
 
   type Music {
@@ -39,12 +41,13 @@ const typeDefs = gql`
     password: String
     role: String
     gender: String
+    profileImage: Upload
   }
 
   input MusicInput {
     title: String
     format: String
-    path: String
+    path: Upload
   }
 
   input CommentInput {
@@ -54,6 +57,7 @@ const typeDefs = gql`
 
   type Query {
     accounts: [Account] @AuthDirective
+    music: [Music] @AuthDirective
   }
 
   type Mutation {

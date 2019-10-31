@@ -6,6 +6,7 @@ const addCommentAction = async (commentData, authorID) => {
             ...commentData,
             authorID
         }
+        console.log(commentInfo)
         return await commentModel.create(commentInfo)
     } catch (error) {
         console.log("TCL: addCommentAction -> error", error)
